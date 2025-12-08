@@ -6,6 +6,10 @@ terraform {
       source  = "pingidentity/pingone"
       version = "~> 0.18.0"
     }
+    davinci = {
+      source  = "pingidentity/davinci" # or the correct registry if published elsewhere
+      version = "~> 1.0.0"          # update this to match the required version
+    }
   }
 }
 
@@ -19,8 +23,6 @@ provider "davinci" {
   client_id       = var.davinci_client_id
   client_secret   = var.davinci_client_secret
   environment_id  = var.davinci_environment_id
-  source  = "hashicorp/davinci" # or the correct registry if published elsewhere
-  version = "~> 1.0.0"          # update this to match the required version
 }
 
 # Import and Deploy DaVinci Flow
@@ -29,7 +31,7 @@ resource "davinci_flow" "my_flow" {
   environment_id = var.davinci_environment_id
 
   # Terraform loads the exported DaVinci flow JSON
-  flow_json      = file("${path.module}/flows/my-flow.json")
+  flow_json      = file("${path.module}/flows/*.json")
 
   # Optional but useful if JSON doesn't include name
   name           = "My Automated Flow"
@@ -38,3 +40,4 @@ resource "davinci_flow" "my_flow" {
   deploy         = true
 
 }
+
