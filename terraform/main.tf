@@ -8,7 +8,7 @@ terraform {
     }
     davinci = {
       source  = "pingidentity/davinci" # or the correct registry if published elsewhere
-      version = "~> 1.0.0"          # update this to match the required version
+      version = "~> 0.1"
     }
   }
 }
@@ -40,4 +40,5 @@ resource "davinci_flow" "my_flow" {
   deploy         = true
 
 }
+
 
