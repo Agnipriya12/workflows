@@ -22,6 +22,7 @@ terraform {
 provider "davinci" {
   access_token   = var.davinci_bearer_token
   environment_id  = var.davinci_environment_id
+  region = "Europe"
 }
 
 # Import and Deploy DaVinci Flow
@@ -36,6 +37,7 @@ resource "davinci_flow" "my_flow" {
   name           = "My Automated Flow"
 
 }
+
 
 
 
