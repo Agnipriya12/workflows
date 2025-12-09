@@ -30,12 +30,13 @@ resource "davinci_flow" "my_flow" {
   environment_id = var.davinci_environment_id
 
   # Terraform loads the exported DaVinci flow JSON
-  flow_json      = file("${path.module}/flows/*.json")
+  flow_json      = file("../flows/Change_Password.json")
 
   # Optional but useful if JSON doesn't include name
   name           = "My Automated Flow"
 
 }
+
 
 
 
