@@ -20,8 +20,7 @@ terraform {
 #}
 
 provider "davinci" {
-  client_id       = var.davinci_client_id
-  client_secret   = var.davinci_client_secret
+  access_token   = var.davinci_bearer_token
   environment_id  = var.davinci_environment_id
 }
 
@@ -37,6 +36,7 @@ resource "davinci_flow" "my_flow" {
   name           = "My Automated Flow"
 
 }
+
 
 
 
