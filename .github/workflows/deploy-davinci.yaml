@@ -66,6 +66,7 @@ jobs:
             -var "davinci_client_id=${{ secrets.TEST_DAVINCI_CLIENT_ID }}" \
             -var "davinci_client_secret=${{ secrets.TEST_DAVINCI_CLIENT_SECRET }}" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
+        working-directory: terraform
 
       - name: Terraform Apply TEST
         run: |
@@ -73,6 +74,7 @@ jobs:
             -var "davinci_client_id=${{ secrets.TEST_DAVINCI_CLIENT_ID }}" \
             -var "davinci_client_secret=${{ secrets.TEST_DAVINCI_CLIENT_SECRET }}" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
+        working-directory: terraform
 
 
 
