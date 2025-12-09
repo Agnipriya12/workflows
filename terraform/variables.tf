@@ -28,3 +28,10 @@ variable "davinci_environment_id" {
   description = "DaVinci Environment ID"
 }
 
+variable "davinci_bearer_token" {
+  type        = string
+  description = "Bearer token for DaVinci API"
+  sensitive   = true
+}
+
+
