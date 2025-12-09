@@ -46,9 +46,9 @@ jobs:
   deploy-test:
     name: Deploy to Test
     runs-on: ubuntu-latest
-    environment:
-      name: test
-      url: https://apps.pingone.eu/9a773ab2-5392-467e-86bc-7bb683d1ae7f/myapps/  #application portal URL
+    #environment:
+     # name: test
+      #url: https://apps.pingone.eu/9a773ab2-5392-467e-86bc-7bb683d1ae7f/myapps/  #application portal URL
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -75,6 +75,7 @@ jobs:
             -var "davinci_client_secret=${{ secrets.TEST_DAVINCI_CLIENT_SECRET }}" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
         working-directory: terraform
+
 
 
 
