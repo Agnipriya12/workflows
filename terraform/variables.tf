@@ -1,17 +1,17 @@
 # PingOne Provider Variables
 
-variable "pingone_client_id" {
-  description = "PingOne OAuth client ID"
-}
+#variable "pingone_client_id" {
+ # description = "PingOne OAuth client ID"
+#}
 
-variable "pingone_client_secret" {
-  description = "PingOne OAuth client secret"
-  sensitive   = true
-}
+#variable "pingone_client_secret" {
+ # description = "PingOne OAuth client secret"
+  #sensitive   = true
+#}
 
-variable "pingone_environment_id" {
-  description = "PingOne Environment ID"
-}
+#variable "pingone_environment_id" {
+ # description = "PingOne Environment ID"
+#}
 
 # DaVinci Provider Variables
 
@@ -28,13 +28,4 @@ variable "davinci_environment_id" {
   description = "DaVinci Environment ID"
 }
 
-variable "populations" {
-  type        = list(string)
-  description = "List of populations to create"
-  default     = ["Default", "TestPopulation", "CarePopulation", "Customers"]
-}
-
-variable "create_test_user" {
-  type        = bool
-  default     = false
 }
