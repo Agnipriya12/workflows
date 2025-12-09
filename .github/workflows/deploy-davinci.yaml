@@ -64,7 +64,7 @@ jobs:
         run: |
           terraform plan \
             -var "davinci_bearer_token=${{ steps.get_token.outputs.token }}" \
-            -var-file="test.tfvars"
+            -var-file="env/test.tfvars"
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
         working-directory: terraform
 
@@ -72,9 +72,10 @@ jobs:
         run: |
           terraform apply -auto-approve \
             -var "davinci_bearer_token=${{ steps.get_token.outputs.token }}" \
-            -var-file="test.tfvars"
+            -var-file="env/test.tfvars"
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
         working-directory: terraform
+
 
 
 
