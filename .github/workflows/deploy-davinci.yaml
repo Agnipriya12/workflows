@@ -63,18 +63,19 @@ jobs:
       - name: Terraform Plan TEST
         run: |
           terraform plan \
-            -var "davinci_bearer_token=${{ steps.get_token.outputs.token }}" \
-            -var-file="env/test.tfvars"
+            -var "davinci_bearer_token=${{ steps.token.outputs.token }}" \
+            -var-file="../env/test.tfvars" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
         working-directory: terraform
 
       - name: Terraform Apply TEST
         run: |
           terraform apply -auto-approve \
-            -var "davinci_bearer_token=${{ steps.get_token.outputs.token }}" \
-            -var-file="env/test.tfvars"
+            -var "davinci_bearer_token=${{ steps.token.outputs.token }}" \
+            -var-file="../env/test.tfvars" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
         working-directory: terraform
+
 
 
 
