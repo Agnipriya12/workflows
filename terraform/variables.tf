@@ -28,4 +28,3 @@ variable "davinci_environment_id" {
   description = "DaVinci Environment ID"
 }
 
-}
