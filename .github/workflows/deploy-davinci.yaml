@@ -21,7 +21,7 @@ jobs:
             -u "${{ secrets.TEST_DAVINCI_CLIENT_ID }}:${{ secrets.TEST_DAVINCI_CLIENT_SECRET }}" \
             -H "Content-Type: application/x-www-form-urlencoded" \
             -d "grant_type=client_credentials" \
-            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_ENV_ID }}/auth/token")
+            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}/auth/token")
 
           TOKEN=$(echo $RESPONSE | jq -r '.access_token')
           echo "token=$TOKEN" >> $GITHUB_OUTPUT
@@ -32,13 +32,13 @@ jobs:
             -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
             -H "Content-Type: application/json" \
             --data @davinci/flows/*.json \
-            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_ENV_ID }}/flows/import"
+            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}/flows/import"
 
       - name: Publish DaVinci Flow
         run: |
           curl -s -X POST \
             -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
-            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_ENV_ID }}/flows/publish"
+            "https://orchestrate-api.eu.${{ secrets.TEST_REGION }}.pingone.com/v1/environments/${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}/flows/publish"
 
   ##########################
   # 1. Deploy to TEST (manual approval)
@@ -73,5 +73,3 @@ jobs:
             -var "davinci_client_id=${{ secrets.TEST_DAVINCI_CLIENT_ID }}" \
             -var "davinci_client_secret=${{ secrets.TEST_DAVINCI_CLIENT_SECRET }}" \
             -var "davinci_environment_id=${{ secrets.TEST_DAVINCI_ENVIRONMENT_ID }}"
-
-
