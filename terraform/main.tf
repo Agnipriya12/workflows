@@ -13,11 +13,11 @@ terraform {
   }
 }
 
-provider "pingone" {
-  client_id       = var.pingone_client_id
-  client_secret   = var.pingone_client_secret
-  environment_id  = var.pingone_environment_id
-}
+#provider "pingone" {
+ # client_id       = var.pingone_client_id
+  #client_secret   = var.pingone_client_secret
+  #environment_id  = var.pingone_environment_id
+#}
 
 provider "davinci" {
   client_id       = var.davinci_client_id
@@ -36,9 +36,7 @@ resource "davinci_flow" "my_flow" {
   # Optional but useful if JSON doesn't include name
   name           = "My Automated Flow"
 
-  # Deploys the flow after importing
-  deploy         = true
-
 }
+
 
 
