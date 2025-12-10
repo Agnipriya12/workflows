@@ -27,13 +27,14 @@ provider "davinci" {
 
 # Import and Deploy DaVinci Flow
 
-resource "davinci_flow" "_testflow" {
+resource "davinci_flow" "testflow" {
   environment_id = var.davinci_environment_id
 
   # Terraform loads the exported DaVinci flow JSON
   flow_json      = file("../flows/Change_Password.json")
 
 }
+
 
 
 
